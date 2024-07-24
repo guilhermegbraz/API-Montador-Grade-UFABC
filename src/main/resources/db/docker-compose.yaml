@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db_montador_grade:
+    image: mysql:latest
+    container_name: montador_grade_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: montador_grade
+      MYSQL_USER: adm
+      MYSQL_PASSWORD: adm
+    volumes:
+      - mysql_data:/var/lib/db-montador_grade
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+volumes:
+  mysql_data:
+    driver: local
